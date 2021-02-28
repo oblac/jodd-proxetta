@@ -301,13 +301,15 @@ public class MethodSignatureVisitor extends TraceSignatureVisitor implements Met
 
 		String type = declaration.subSequence(declarationTypeOffset, declaration.length()).toString();
 
-		maybeUseType(AsmUtil.removeGenericsFromSignature(type));
+		maybeUseType(type);
 	}
 
-	private void maybeUseType(final String typeName) {
+	private void maybeUseType(final String typeInput) {
 		if (!isTopLevelType()) {
 			return;
 		}
+
+		final String typeName = AsmUtil.removeGenericsFromSignature(typeInput);
 
 		if (visitingArray) {
 			// since generics are removed, review the array situation
@@ -352,7 +354,7 @@ public class MethodSignatureVisitor extends TraceSignatureVisitor implements Met
 
 		final TypeInfoImpl typeInfo = new TypeInfoImpl(
 			type,
-			typeName,
+			typeInput,
 			bytecodeName,
 			resolveRawTypeName(bytecodeName));
 
