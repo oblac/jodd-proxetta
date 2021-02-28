@@ -153,7 +153,7 @@ public class TraceSignatureVisitor extends SignatureVisitor {       // jodd: no 
 	// jodd: added the variant of the ctor
 
 	public TraceSignatureVisitor(final StringBuilder stringBuilder, final boolean isInterface) {
-		super(Opcodes.ASM7);
+		super(/* latest api = */ Opcodes.ASM9);
 		this.isInterface = isInterface;
 		this.declaration = stringBuilder;
 	}

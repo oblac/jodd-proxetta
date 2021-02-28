@@ -73,7 +73,6 @@ public class MethodSignatureVisitor extends TraceSignatureVisitor implements Met
 	protected final Map<String, String> generics;
 	protected final Map<String, String> declaredTypeGeneric;
 
-
 	// ---------------------------------------------------------------- ctors
 
 	public MethodSignatureVisitor(
@@ -302,12 +301,21 @@ public class MethodSignatureVisitor extends TraceSignatureVisitor implements Met
 
 		String type = declaration.subSequence(declarationTypeOffset, declaration.length()).toString();
 
-		maybeUseType(type);
+		maybeUseType(AsmUtil.removeGenericsFromSignature(type));
 	}
 
 	private void maybeUseType(final String typeName) {
 		if (!isTopLevelType()) {
 			return;
+		}
+
+		if (visitingArray) {
+			// since generics are removed, review the array situation
+			int arrayCount = StringUtil.count(typeName, '[');
+			if (arrayCount == 0) {
+				// there were only generic arrays
+				visitingArray = false;
+			}
 		}
 
 		char type;

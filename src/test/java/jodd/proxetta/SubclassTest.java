@@ -164,7 +164,8 @@ class SubclassTest {
 		ProxyProxetta proxyProxetta = Proxetta.proxyProxetta().withAspect(new ProxyAspect(FooProxyAdvice.class, new AllMethodsPointcut()));
 		ProxyProxettaFactory builder = proxyProxetta.proxy();
 		builder.setTarget(WithFun.class);
-
+		Class w = builder.define();
+		assertNotNull(w);
 	}
 
 	@SuppressWarnings({"UnnecessaryBoxing"})
