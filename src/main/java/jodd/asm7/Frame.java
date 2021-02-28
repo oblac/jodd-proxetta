@@ -89,9 +89,9 @@ package jodd.asm7;
  * <p>Output frames can contain abstract types of any kind and with a positive or negative array
  * dimension (and even unassigned types, represented by 0 - which does not correspond to any valid
  * abstract type value). Input frames can only contain CONSTANT_KIND, REFERENCE_KIND or
- * UNINITIALIZED_KIND abstract types of positive or null array dimension. In all cases the type
- * table contains only internal type names (array type descriptors are forbidden - array dimensions
- * must be represented through the DIM field).
+ * UNINITIALIZED_KIND abstract types of positive or {@literal null} array dimension. In all cases
+ * the type table contains only internal type names (array type descriptors are forbidden - array
+ * dimensions must be represented through the DIM field).
  *
  * <p>The LONG and DOUBLE types are always represented by using two slots (LONG + TOP or DOUBLE +
  * TOP), for local variables as well as in the operand stack. This is necessary to be able to
@@ -298,7 +298,7 @@ class Frame {
    * @return the abstract type value corresponding to the given internal name.
    */
   static int getAbstractTypeFromInternalName(
-      final SymbolTable symbolTable, final String internalName) {
+		  final SymbolTable symbolTable, final String internalName) {
     return REFERENCE_KIND | symbolTable.addType(internalName);
   }
 
@@ -311,7 +311,7 @@ class Frame {
    * @return the abstract type corresponding to the given type descriptor.
    */
   private static int getAbstractTypeFromDescriptor(
-      final SymbolTable symbolTable, final String buffer, final int offset) {
+		  final SymbolTable symbolTable, final String buffer, final int offset) {
     String internalName;
     switch (buffer.charAt(offset)) {
       case 'V':
@@ -678,7 +678,7 @@ class Frame {
    * @param symbolTable the type table to use to lookup and store type {@link Symbol}.
    */
   void execute(
-      final int opcode, final int arg, final Symbol argSymbol, final SymbolTable symbolTable) {
+		  final int opcode, final int arg, final Symbol argSymbol, final SymbolTable symbolTable) {
     // Abstract types popped from the stack or read from local variables.
     int abstractType1;
     int abstractType2;
@@ -1160,7 +1160,7 @@ class Frame {
    * @return {@literal true} if the input frame of 'frame' has been changed by this operation.
    */
   final boolean merge(
-      final SymbolTable symbolTable, final Frame dstFrame, final int catchTypeIndex) {
+		  final SymbolTable symbolTable, final Frame dstFrame, final int catchTypeIndex) {
     boolean frameChanged = false;
 
     // Compute the concrete types of the local variables at the end of the basic block corresponding
@@ -1253,10 +1253,10 @@ class Frame {
    * @param symbolTable the type table to use to lookup and store type {@link Symbol}.
    * @param sourceType the abstract type with which the abstract type array element must be merged.
    *     This type should be of {@link #CONSTANT_KIND}, {@link #REFERENCE_KIND} or {@link
-   *     #UNINITIALIZED_KIND} kind, with positive or null array dimensions.
+   *     #UNINITIALIZED_KIND} kind, with positive or {@literal null} array dimensions.
    * @param dstTypes an array of abstract types. These types should be of {@link #CONSTANT_KIND},
-   *     {@link #REFERENCE_KIND} or {@link #UNINITIALIZED_KIND} kind, with positive or null array
-   *     dimensions.
+   *     {@link #REFERENCE_KIND} or {@link #UNINITIALIZED_KIND} kind, with positive or {@literal
+   *     null} array dimensions.
    * @param dstIndex the index of the type that must be merged in dstTypes.
    * @return {@literal true} if the type array has been modified by this operation.
    */
@@ -1405,7 +1405,7 @@ class Frame {
    *     4.7.4</a>
    */
   static void putAbstractType(
-      final SymbolTable symbolTable, final int abstractType, final ByteVector output) {
+		  final SymbolTable symbolTable, final int abstractType, final ByteVector output) {
     int arrayDimensions = (abstractType & Frame.DIM_MASK) >> DIM_SHIFT;
     if (arrayDimensions == 0) {
       int typeValue = abstractType & VALUE_MASK;
