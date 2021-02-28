@@ -26,8 +26,8 @@
 package jodd.paramo;
 
 import jodd.asm.EmptyClassVisitor;
-import jodd.asm7.MethodVisitor;
-import jodd.asm7.Type;
+import jodd.asm9.MethodVisitor;
+import jodd.asm9.Type;
 
 import java.lang.reflect.Modifier;
 import java.lang.reflect.Parameter;

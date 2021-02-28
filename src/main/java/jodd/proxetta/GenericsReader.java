@@ -26,7 +26,7 @@
 package jodd.proxetta;
 
 import jodd.asm.TraceSignatureVisitor;
-import jodd.asm7.signature.SignatureReader;
+import jodd.asm9.signature.SignatureReader;
 
 import java.util.Collections;
 import java.util.LinkedHashMap;

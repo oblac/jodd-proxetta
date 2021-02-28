@@ -25,7 +25,7 @@
 
 package jodd.proxetta.impl;
 
-import jodd.asm7.ClassReader;
+import jodd.asm9.ClassReader;
 import jodd.proxetta.InvokeAspect;
 import jodd.proxetta.ProxettaFactory;
 import jodd.proxetta.asm.InvokeClassBuilder;

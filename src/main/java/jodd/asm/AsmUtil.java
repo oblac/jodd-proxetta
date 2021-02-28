@@ -25,12 +25,12 @@
 
 package jodd.asm;
 
-import jodd.asm7.MethodVisitor;
+import jodd.asm9.MethodVisitor;
 import jodd.proxetta.MutableInteger;
 
-import static jodd.asm7.Opcodes.CHECKCAST;
-import static jodd.asm7.Opcodes.INVOKESTATIC;
-import static jodd.asm7.Opcodes.INVOKEVIRTUAL;
+import static jodd.asm9.Opcodes.CHECKCAST;
+import static jodd.asm9.Opcodes.INVOKESTATIC;
+import static jodd.asm9.Opcodes.INVOKEVIRTUAL;
 
 /**
  * Generic ASM utils.

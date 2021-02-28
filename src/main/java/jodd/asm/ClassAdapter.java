@@ -25,8 +25,8 @@
 
 package jodd.asm;
 
-import jodd.asm7.ClassVisitor;
-import jodd.asm7.Opcodes;
+import jodd.asm9.ClassVisitor;
+import jodd.asm9.Opcodes;
 
 /**
  * An empty ClassVisitor that delegates to another ClassVisitor.

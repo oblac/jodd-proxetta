@@ -27,8 +27,8 @@
 // THE POSSIBILITY OF SUCH DAMAGE.
 package jodd.asm;
 
-import jodd.asm7.Opcodes;
-import jodd.asm7.signature.SignatureVisitor;
+import jodd.asm9.Opcodes;
+import jodd.asm9.signature.SignatureVisitor;
 
 import java.util.Collections;
 import java.util.HashMap;

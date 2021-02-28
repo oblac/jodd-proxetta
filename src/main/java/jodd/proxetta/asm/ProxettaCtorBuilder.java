@@ -26,13 +26,13 @@
 package jodd.proxetta.asm;
 
 import jodd.asm.EmptyMethodVisitor;
-import jodd.asm7.AnnotationVisitor;
-import jodd.asm7.MethodVisitor;
+import jodd.asm9.AnnotationVisitor;
+import jodd.asm9.MethodVisitor;
 import jodd.proxetta.ProxettaNames;
 
-import static jodd.asm7.Opcodes.ALOAD;
-import static jodd.asm7.Opcodes.INVOKESPECIAL;
-import static jodd.asm7.Opcodes.RETURN;
+import static jodd.asm9.Opcodes.ALOAD;
+import static jodd.asm9.Opcodes.INVOKESPECIAL;
+import static jodd.asm9.Opcodes.RETURN;
 import static jodd.proxetta.asm.ProxettaAsmUtil.DESC_VOID;
 import static jodd.proxetta.asm.ProxettaAsmUtil.loadSpecialMethodArguments;
 
