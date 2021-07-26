@@ -1,4 +1,4 @@
-// Copyright (c) 2003-present, Jodd Team (http://jodd.org)
+package jodd.proxetta;// Copyright (c) 2003-present, Jodd Team (http://jodd.org)
 // All rights reserved.
 //
 // Redistribution and use in source and binary forms, with or without
